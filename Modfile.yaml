@@ -140,7 +140,7 @@ configs:
       - refVar: MGW_MQTT_CLIENT_ID
         services:
           - mgw-zwave-dc
-  zwvaecontroller:
+  zwaveController:
     dataType: string
     value: "zwavejs2mqtt"
     options:
@@ -150,6 +150,50 @@ configs:
       - refVar: ZWAVE_CONTROLLER
         services:
           - mgw-zwave-dc
+  zwaveValueEventTopic:
+    dataType: string
+    value: "zwave2mqtt/#"
+    targets:
+      - refVar: ZVAVE_VALUE_EVENT_TOPIC
+        services:
+          - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Value Event Topic
+      group: zwave
+  zwaveMqttDeviceStateTopic:
+    dataType: string
+    value: "zwave/#"
+    targets:
+      - refVar: ZWAVE_MQTT_DEVICE_STATE_TOPIC
+        services:
+          - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Mqtt Device State Topic
+      group: zwave
+  zwaveMqttApiTopic:
+    dataType: string
+    value: "zwave2mqtt/_CLIENTS/ZWAVE_GATEWAY-SENERGY/api"
+    targets:
+      - refVar: ZWAVE_MQTT_API_TOPIC
+        services:
+          - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Mqtt Api Topic
+      group: zwave
+  zwaveNetworksEventsTopic:
+    dataType: string
+    value: "zwave2mqtt/_EVENTS/ZWAVE_GATEWAY-SENERGY"
+    targets:
+      - refVar: ZWAVE_NETWORK_EVENTS_TOPIC
+        services:
+          - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Network Event Topic
+      group: zwave
   authUrl:
     dataType: string
     value: "https://auth.senergy.infai.org"
@@ -204,3 +248,5 @@ inputGroups:
     name: "MGW"
   platform:
     name: "Platform"
+  zwave:
+    name: "Z-Wave"
