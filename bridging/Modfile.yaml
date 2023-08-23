@@ -31,6 +31,8 @@ secrets:
         item: password
         services:
           - mgw-zwave-dc
+    userInput:
+      name: Auth Credentials
 configs:
   mqttBroker:
     dataType: string
