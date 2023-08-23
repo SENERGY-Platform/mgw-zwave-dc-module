@@ -13,14 +13,9 @@ dependencies:
     requiredServices:
       server:
         - refVar: MGW_MQTT_BROKER
-          valuePrefix: "tcp://" #TODO: replace with https://tickets.infai.org/browse/SNRGY-2820 solution
-          valueSuffix: ":1883" #TODO: replace with https://tickets.infai.org/browse/SNRGY-2820 solution
           services:
             - mgw-mqtt-dc
-        #TODO: replace with https://tickets.infai.org/browse/SNRGY-2821 solution
         - refVar: ZWAVE_MQTT_BROKER
-          valuePrefix: "tcp://" #TODO: replace with https://tickets.infai.org/browse/SNRGY-2820 solution
-          valueSuffix: ":1883" #TODO: replace with https://tickets.infai.org/browse/SNRGY-2820 solution
           services:
             - mgw-mqtt-dc
 hostResources:
@@ -39,6 +34,11 @@ services:
   mgw-zwave-dc:
     name: mgw-zwave-dc
     image: ghcr.io/senergy-platform/mgw-zwave-dc:v1.0.0
+volumes:
+  zwave2mqtt_store:
+    - mountPoint: /usr/src/app/store
+      services:
+        - zwave2mqtt
 secrets:
   auth:
     type: basic-auth
@@ -55,7 +55,7 @@ configs:
 ## broker config by dependency
 #  mqttBroker:
 #    dataType: string
-#    value: "tcp://message-broker:1883" #TODO: replace with https://tickets.infai.org/browse/SNRGY-2821 solution
+#    value: "tcp://message-broker:1883"
 #    targets:
 #      - refVar: ZWAVE_MQTT_BROKER
 #        services:
