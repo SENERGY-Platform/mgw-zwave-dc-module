@@ -14,10 +14,10 @@ dependencies:
       server:
         - refVar: MGW_MQTT_BROKER
           services:
-            - mgw-mqtt-dc
+            - mgw-zwave-dc
         - refVar: ZWAVE_MQTT_BROKER
           services:
-            - mgw-mqtt-dc
+            - mgw-zwave-dc
 hostResources:
   devices:
     userInput:
@@ -46,11 +46,11 @@ secrets:
       - refVar: AUTH_USERNAME
         item: username
         services:
-          - mgw-mqtt-dc
+          - mgw-zwave-dc
       - refVar: AUTH_PASSWORD
         item: password
         services:
-          - mgw-mqtt-dc
+          - mgw-zwave-dc
 configs:
 ## broker config by dependency
 #  mqttBroker:
@@ -237,11 +237,11 @@ configs:
     targets:
       - refVar: DEBUG
         services:
-          - mgw-mqtt-dc
+          - mgw-zwave-dc
     userInput:
       type: text
       name: DEBUG
-inputGroups: 
+inputGroups:
   mqtt:
     name: "MQTT"
   mgw:
