@@ -4,7 +4,7 @@ name: Z-Wave Device-Connector Bridged
 version: v0.0.1
 type: device-connector
 deploymentType: single
-description: "after deployment, the zwave2mqtt service has to be manually configured: \n - "
+license: "Apache License 2.0"
 # ref to mgw broker
 # TODO: replace with real mgw broker
 dependencies:
