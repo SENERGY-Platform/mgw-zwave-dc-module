@@ -5,13 +5,11 @@ version: v0.0.1
 type: device-connector
 deploymentType: single
 license: "Apache License 2.0"
-# ref to mgw broker
-# TODO: replace with real mgw broker
 dependencies:
-  github.com/SENERGY-Platform/mgw-test-module-a:
-    version: <v3.0.0
+  github.com/SENERGY-Platform/mgw-mqtt-broker:
+    version: <v2.0.0
     requiredServices:
-      server:
+      broker:
         - refVar: MGW_MQTT_BROKER
           services:
             - mgw-zwave-dc
