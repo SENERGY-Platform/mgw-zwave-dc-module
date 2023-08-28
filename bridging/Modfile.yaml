@@ -11,6 +11,7 @@ dependencies:
     requiredServices:
       broker:
         - refVar: MGW_MQTT_BROKER
+          template: "tcp://{ref}:1883"
           services:
             - mgw-zwave-dc
 services:
