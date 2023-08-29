@@ -1,7 +1,7 @@
 modfileVersion: "v1"
 id: github.com/SENERGY-Platform/mgw-zwave-dc-module
 name: Z-Wave Device-Connector
-version: v0.0.5
+version: v0.0.6
 type: device-connector
 deploymentType: single
 description: "after deployment, the zwave2mqtt service has to be manually configured: \n - Payload type: Entire Z-Wave value Object \n - Send Zwave events: (optional to enable live device register)"
@@ -162,6 +162,60 @@ configs:
       - "zwavejs2mqtt"
     targets:
       - refVar: ZWAVE_CONTROLLER
+        services:
+          - mgw-zwave-dc
+  deviceIdPrefix:
+    dataType: string
+    value: "prefix"
+    targets:
+      - refVar: DEVICE_ID_PREFIX
+        services:
+          - mgw-zwave-dc
+  deleteMissingDevices:
+    dataType: string
+    value: "true"
+    options:
+      - "true"
+      - "false"
+    targets:
+      - refVar: DELETE_MISSING_DEVICES
+        services:
+          - mgw-zwave-dc
+  deleteHusks:
+    dataType: string
+    value: "false"
+    options:
+      - "true"
+      - "false"
+    targets:
+      - refVar: DELETE_HUSKS
+        services:
+          - mgw-zwave-dc
+  createMissingDeviceTypes:
+    dataType: string
+    value: "false"
+    options:
+      - "true"
+      - "false"
+    targets:
+      - refVar: CREATE_MISSING_DEVICE_TYPES
+        services:
+          - mgw-zwave-dc
+  eventsForUnregisteredDevices:
+    dataType: string
+    value: "false"
+    options:
+      - "true"
+      - "false"
+    targets:
+      - refVar: EVENTS_FOR_UNREGISTERED_DEVICES
+        services:
+          - mgw-zwave-dc
+  updatePeriod:
+    dataType: string
+    value: "15m"
+    targets:
+      - refVar: UPDATE_PERIOD
         services:
           - mgw-zwave-dc
   zwaveValueEventTopic:
