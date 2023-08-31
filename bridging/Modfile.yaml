@@ -1,7 +1,7 @@
 modfileVersion: "v1"
 id: github.com/SENERGY-Platform/mgw-zwave-dc-module/bridging
 name: Z-Wave Device-Connector Bridged
-version: v0.0.6
+version: v0.0.7
 type: device-connector
 deploymentType: single
 license: "Apache License 2.0"
@@ -140,6 +140,10 @@ configs:
       - refVar: DEVICE_ID_PREFIX
         services:
           - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Device ID Prefix
+      group: zwave
   deleteMissingDevices:
     dataType: string
     value: "true"
@@ -150,6 +154,10 @@ configs:
       - refVar: DELETE_MISSING_DEVICES
         services:
           - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Delete Missing Devices
+      group: zwave
   deleteHusks:
     dataType: string
     value: "false"
@@ -160,6 +168,10 @@ configs:
       - refVar: DELETE_HUSKS
         services:
           - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Delete Husks
+      group: zwave
   createMissingDeviceTypes:
     dataType: string
     value: "false"
@@ -170,6 +182,10 @@ configs:
       - refVar: CREATE_MISSING_DEVICE_TYPES
         services:
           - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Create Missing Devices
+      group: zwave
   eventsForUnregisteredDevices:
     dataType: string
     value: "false"
@@ -180,6 +196,10 @@ configs:
       - refVar: EVENTS_FOR_UNREGISTERED_DEVICES
         services:
           - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Events for Unregistered Devices
+      group: zwave
   updatePeriod:
     dataType: string
     value: "15m"
@@ -187,6 +207,10 @@ configs:
       - refVar: UPDATE_PERIOD
         services:
           - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Z-Wave Update-Period
+      group: zwave
   zwaveValueEventTopic:
     dataType: string
     value: "zwave2mqtt/#"
