@@ -1,7 +1,7 @@
 modfileVersion: "v1"
 id: github.com/SENERGY-Platform/mgw-zwave-dc-module
 name: Z-Wave Device-Connector
-version: v0.1.2
+version: v0.1.3
 type: device-connector
 deploymentType: single
 description: "after deployment, the zwave2mqtt service has to be manually configured: \n - Payload type: Entire Z-Wave value Object \n - Send Zwave events: (optional to enable live device register)"
@@ -39,6 +39,8 @@ services:
   mgw-zwave-dc:
     name: mgw-zwave-dc
     image: ghcr.io/senergy-platform/mgw-zwave-dc:v1.1.1
+    requiredServices:
+      - zwave2mqtt
 volumes:
   zwave2mqtt_store:
     - mountPoint: /usr/src/app/store
