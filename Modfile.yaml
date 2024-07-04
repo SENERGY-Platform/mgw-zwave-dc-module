@@ -1,7 +1,7 @@
 modfileVersion: "v1"
 id: github.com/SENERGY-Platform/mgw-zwave-dc-module
 name: Z-Wave Device-Connector
-version: v0.1.3
+version: v0.1.4
 type: device-connector
 deploymentType: single
 description: "after deployment, the zwave2mqtt service has to be manually configured: \n - Payload type: Entire Z-Wave value Object \n - Send Zwave events: (optional to enable live device register)"
@@ -38,7 +38,7 @@ services:
         hostPort: 8091
   mgw-zwave-dc:
     name: mgw-zwave-dc
-    image: ghcr.io/senergy-platform/mgw-zwave-dc:v1.1.1
+    image: ghcr.io/senergy-platform/mgw-zwave-dc:v1.1.2
     requiredServices:
       - zwave2mqtt
 volumes:
@@ -237,6 +237,17 @@ configs:
       type: text
       name: Z-Wave Events for Unregistered Devices
       group: zwave
+  initialUpdateRequestDelay:
+    dataType: string
+    value: "30s"
+    targets:
+      - refVar: INITIAL_UPDATE_REQUEST_DELAY
+        services:
+          - mgw-zwave-dc
+    userInput:
+      type: text
+      name: Initial Update Request Delay
+      group: zwave
   updatePeriod:
     dataType: string
     value: "15m"
@@ -246,7 +257,7 @@ configs:
           - mgw-zwave-dc
     userInput:
       type: text
-      name: Z-Wave Update-Period
+      name: Update-Period
       group: zwave
   zwaveValueEventTopic:
     dataType: string
