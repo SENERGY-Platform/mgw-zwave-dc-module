@@ -1,10 +1,10 @@
 {
     "mqtt": {
-        "name": "zwave-js-ui",
-        "host": "",
-        "port": 0,
+        "name": "SENERGY",
+        "host": "localhost",
+        "port": 1883,
         "qos": 1,
-        "prefix": "zwave",
+        "prefix": "zwave2mqtt",
         "reconnectPeriod": 3000,
         "retain": true,
         "clean": true,
@@ -17,10 +17,11 @@
         "key": ""
     },
     "gateway": {
-        "type": 1,
+        "sendEvents": true,
+        "type": 0,
         "plugins": [],
         "authEnabled": false,
-        "payloadType": 0,
+        "payloadType": 1,
         "nodeNames": true,
         "hassDiscovery": false,
         "discoveryPrefix": "homeassistant",
@@ -30,12 +31,7 @@
         "values": [],
         "jobs": [],
         "disableChangelog": false,
-        "notifyNewVersions": false,
-        "versions": {
-            "app": "11.0.0",
-            "driver": "15.10.0",
-            "server": "3.2.1"
-        }
+        "notifyNewVersions": false
     },
     "zwave": {
         "enabled": true,
