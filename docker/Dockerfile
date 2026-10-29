@@ -10,9 +10,9 @@ ENV ZWAVE_LOG_ENABLED=true
 ENV ZWAVE_LOG_LEVEL=debug
 
 RUN apk --update add jq
-RUN apk --update add moreutils
 
-ADD settings.json /usr/src/app/store/settings.json
+# outside the store volume, start.sh copies it into the volume if settings.json is missing
+ADD settings.json /usr/src/app/settings.default.json
 ADD start.sh /usr/src/app/start.sh
 
 CMD ["sh", "start.sh"]
